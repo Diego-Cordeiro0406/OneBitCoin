@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, SafeAreaView, Platform, StatusBar } from 'react
 import CurrentPrice from './src/components/CurrentPrice';
 import HistoricGraphic from './src/components/HistoricGraphic';
 import QuotationsList from './src/components/QuotationsList';
+import QuotationsItems from './src/components/QuotationsList/QuotationsItems';
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <CurrentPrice />
       <HistoricGraphic />
       <QuotationsList />
+      <QuotationsItems />
     </SafeAreaView>
   );
 }
