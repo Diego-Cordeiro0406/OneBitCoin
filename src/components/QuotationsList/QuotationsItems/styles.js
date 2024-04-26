@@ -3,35 +3,39 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
   mainContent: {
     alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 50,
+    backgroundColor: '#000000',
+    // borderRadius: 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingLeft: 5,
     paddingRight: 5,
-    width: '95%',
+    width: '90%',
   },
   containerLeft: {
-    borderWidth: 3,
-    borderColor: 'red',
+    // borderWidth: 3,
+    // borderColor: 'red',
   },
   contentLeft: {
     alignItems: 'center',
     flexDirection: 'row',
   },
   contentRight: {
-    borderWidth: 3,
-    borderColor: 'red',
+    // borderWidth: 3,
+    // borderColor: 'red',
   },
   dayCotation: {
-    fontSize: 18
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   image: {
     height:30,
     width:30,
   },
   price: {
-    fontSize: 18
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 })
 
