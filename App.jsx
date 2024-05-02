@@ -11,7 +11,6 @@ export default function App() {
       <CurrentPrice />
       <HistoricGraphic />
       <QuotationsList />
-      <QuotationsItems />
     </SafeAreaView>
   );
 }
