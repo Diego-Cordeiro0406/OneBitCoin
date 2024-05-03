@@ -15,7 +15,7 @@ const year = date.getFullYear();
 // Formatar a data no padrão DD/MM/YYYY
 const formatedDate = `${day}/${month}/${year}`;
 
-console.log(formatedDate);
+// console.log(formatedDate);
   return (
     <View style={styles.mainContent}>
       <View style={styles.containerLeft}>

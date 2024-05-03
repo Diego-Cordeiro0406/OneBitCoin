@@ -2,10 +2,10 @@ import {
   View,
   Text,
   TouchableOpacity,
-  ScrollView,
   FlatList,
 } from 'react-native'
 import { useState, useEffect, Fragment } from 'react'
+import axios from 'axios';
 
 import styles from './styles'
 import QuotationsItems from './QuotationsItems';
@@ -13,22 +13,24 @@ import QuotationsItems from './QuotationsItems';
 export default function QuotationsList() {
   const [query, setQuery] = useState(30);
   const [queryData, setQueryData] = useState(null)
+
   useEffect(() => {
     const fetchData = async () => {
-      // try {
-        console.log('batata');
+      try {
+        // console.log('batata');
         const currentData = await fetch(
           `https://economia.awesomeapi.com.br/json/daily/BTC-BRl/${query}`);
         const currentJson = await currentData.json()
-        console.log(currentJson)
+        console.log(currentData)
+        // console.log(currentJson)
         setQueryData(currentJson)
-      // } catch (error) {
-      //   console.log(error);
-      // }
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchData();
   }, [query])
-  console.log(queryData)
+  // console.log(queryData)
   return (
     <Fragment>
       <View style={styles.periodContainer}>
