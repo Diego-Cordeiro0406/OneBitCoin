@@ -4,33 +4,38 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native'
-import { useState, useEffect, Fragment } from 'react'
-import axios from 'axios';
+import { useState, useEffect, Fragment, useContext } from 'react'
 
 import styles from './styles'
 import QuotationsItems from './QuotationsItems';
+import { Context } from '../../context/Context';
 
 export default function QuotationsList() {
   const [query, setQuery] = useState(30);
   const [queryData, setQueryData] = useState(null)
 
+  const context = useContext(Context)
+  const { setData } = context
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // console.log('batata');
         const currentData = await fetch(
           `https://economia.awesomeapi.com.br/json/daily/BTC-BRl/${query}`);
         const currentJson = await currentData.json()
-        console.log(currentData)
-        // console.log(currentJson)
         setQueryData(currentJson)
+
+        const dataTographic = currentJson.map((item) => {
+          return Number(item.ask) / 1000
+        })
+        setData(dataTographic)
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
   }, [query])
-  // console.log(queryData)
+
   return (
     <Fragment>
       <View style={styles.periodContainer}>
@@ -50,14 +55,12 @@ export default function QuotationsList() {
           <Text style={styles.textPeriodButton}>6M</Text>
         </TouchableOpacity>
       </View>
-      {/* <ScrollView> */}
         <FlatList
           data={queryData}
           renderItem={({item}) => {
             return <QuotationsItems date={item.timestamp} value={item.ask}/>
           }}
         />
-      {/* </ScrollView> */}
     </Fragment>
   )
 }

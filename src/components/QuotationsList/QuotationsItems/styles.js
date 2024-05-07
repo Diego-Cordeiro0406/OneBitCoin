@@ -4,24 +4,17 @@ const styles = StyleSheet.create({
   mainContent: {
     alignItems: 'center',
     backgroundColor: '#000000',
-    // borderRadius: 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingLeft: 5,
-    paddingRight: 5,
-    width: '90%',
+    paddingVertical: 4,
+    width: '95%',
   },
   containerLeft: {
-    // borderWidth: 3,
-    // borderColor: 'red',
+    paddingLeft: 7
   },
   contentLeft: {
     alignItems: 'center',
     flexDirection: 'row',
-  },
-  contentRight: {
-    // borderWidth: 3,
-    // borderColor: 'red',
   },
   dayCotation: {
     color: '#FFFFFF',

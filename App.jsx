@@ -1,17 +1,20 @@
 import { StyleSheet, Text, View, SafeAreaView, Platform, StatusBar } from 'react-native';
+
+import Provider from './src/context/Provider';
 import CurrentPrice from './src/components/CurrentPrice';
 import HistoricGraphic from './src/components/HistoricGraphic';
 import QuotationsList from './src/components/QuotationsList';
-import QuotationsItems from './src/components/QuotationsList/QuotationsItems';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor='#F50D41' barStyle='ligth-content' style="auto" />
-      <CurrentPrice />
-      <HistoricGraphic />
-      <QuotationsList />
-    </SafeAreaView>
+    <Provider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar backgroundColor='#F50D41' barStyle='ligth-content' style="auto" />
+        <CurrentPrice />
+        <HistoricGraphic />
+        <QuotationsList />
+      </SafeAreaView>
+    </Provider>
   );
 }
 

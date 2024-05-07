@@ -15,7 +15,6 @@ const year = date.getFullYear();
 // Formatar a data no padrão DD/MM/YYYY
 const formatedDate = `${day}/${month}/${year}`;
 
-// console.log(formatedDate);
   return (
     <View style={styles.mainContent}>
       <View style={styles.containerLeft}>
@@ -25,7 +24,7 @@ const formatedDate = `${day}/${month}/${year}`;
         </View>
       </View>
       <View style={styles.contentRight}>
-        <Text style={styles.price}>{`R$ ${(parseFloat(props.value) / 1000).toFixed(2)}`}</Text>
+        <Text style={styles.price}>{`R$ ${(parseFloat(props.value) / 1000)}`}</Text>
       </View>
     </View>
   )
