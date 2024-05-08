@@ -9,10 +9,29 @@ import { useState, useEffect, Fragment, useContext } from 'react'
 import styles from './styles'
 import QuotationsItems from './QuotationsItems';
 import { Context } from '../../context/Context';
+import QuotationsButton from './QuotationsButton';
 
 export default function QuotationsList() {
   const [query, setQuery] = useState(30);
   const [queryData, setQueryData] = useState(null)
+
+  const periods = [
+    {
+      day: 7,
+      dayOfMonth: '7D'
+    }, {
+      day: 15,
+      dayOfMonth: '15D'
+    }, {
+      day: 30,
+      dayOfMonth: '1M'
+    }, {
+      day: 90,
+      dayOfMonth: '3M'
+    }, {
+      day: 120,
+      dayOfMonth: '6M'
+    }]
 
   const context = useContext(Context)
   const { setData } = context
@@ -39,21 +58,18 @@ export default function QuotationsList() {
   return (
     <Fragment>
       <View style={styles.periodContainer}>
-        <TouchableOpacity onPress={() => setQuery(7)} style={styles.periodButton}>
-          <Text style={styles.textPeriodButton}>7D</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setQuery(15)} style={styles.periodButton}>
-          <Text style={styles.textPeriodButton}>15D</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setQuery(30)} style={styles.periodButton}>
-          <Text style={styles.textPeriodButton}>1M</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setQuery(90)} style={styles.periodButton}>
-          <Text style={styles.textPeriodButton}>3M</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setQuery(120)} style={styles.periodButton}>
-          <Text style={styles.textPeriodButton}>6M</Text>
-        </TouchableOpacity>
+        {
+          periods.map((period) => (
+            <QuotationsButton
+              dayOfMonth={period.dayOfMonth}
+              day={period.day}
+              updateData={setQuery}
+            />
+          ))
+        }
+      </View>
+      <View style={styles.periodMessageContainer}>
+        <Text style={styles.periodMessage}>{`Exibindo cotação dos ultimos ${query} dias`}</Text>
       </View>
         <FlatList
           data={queryData}

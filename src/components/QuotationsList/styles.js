@@ -9,18 +9,17 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     width: '100%',
   },
-  periodButton: {
+  periodMessageContainer: {
     alignItems: 'center',
-    backgroundColor: '#F50D41',
-    borderRadius: 50,
-    height: 30,
+    height: 48,
     justifyContent: 'center',
-    width: 50,
+    width: '100%',
   },
-  textPeriodButton: {
-    color: '#fff',
-    fontSize: 16,
-  },
+  periodMessage: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: 'bold',
+  }
 })
 
 export default styles
